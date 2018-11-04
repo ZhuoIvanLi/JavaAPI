@@ -1,0 +1,6 @@
+com\ivanli\javaapi\controller\UserController.class
+com\ivanli\javaapi\DAO\UserDAO.class
+com\ivanli\javaapi\model\User.class
+com\ivanli\javaapi\Swagger2.class
+com\ivanli\javaapi\repository\UserRepository.class
+com\ivanli\javaapi\UserAPI.class
