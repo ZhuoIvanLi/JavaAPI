@@ -17,5 +17,5 @@ public class UserAPI  extends SpringBootServletInitializer {
 	 protected SpringApplicationBuilder configure(SpringApplicationBuilder userapi) {
 	     return userapi.sources(UserAPI.class);
 	 }
-
+	 
 }

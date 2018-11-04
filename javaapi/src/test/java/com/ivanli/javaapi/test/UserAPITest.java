@@ -3,6 +3,7 @@ package com.ivanli.javaapi.test;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import io.restassured.http.ContentType;
 
 public class UserAPITest {
 
-	/*@BeforeClass
+	@BeforeClass
 	public static void init() {
 		RestAssured.baseURI = "http://localhost";
 		RestAssured.port=8080;
@@ -27,17 +28,12 @@ public class UserAPITest {
 	public void testCreateUser() {
 		int code = given()
 			.contentType("application/json")
-			.body("{\"name\":\"ivantest\",\"email\":\"ivantest@gmail.com\"}")
+			.body("{\"name\":\"ivantest\",\"email\":\"ivantest@test.com\"}")
 			.when()
 			.post("/users")
 			.getStatusCode();
 		
-		
-		if(code==204){
-			System.out.println("User Created Successfully");
-		}else {
-			System.out.println("Unexpected Error");
-		}
+		assertEquals(204, code);
 	}
 	
 	@Test
@@ -47,11 +43,7 @@ public class UserAPITest {
 				.get("/users/{id}", 1)
 				.getStatusCode();
 		
-		if(code==200){
-			System.out.println("Requested User's details");
-		}else {
-			System.out.println("Unexpected Error");
-		}
+		assertEquals(200, code);
 		
 	}
 	
@@ -64,12 +56,7 @@ public class UserAPITest {
 				.put("/users/{id}", 3)
 				.getStatusCode();
 		
-		if(code==204){
-			System.out.println("User modified Successfully");
-		}else {
-			System.out.println("Unexpected Error");
-		}
-		
+		assertEquals(204, code);
 	}
 	
 	@Test
@@ -77,17 +64,12 @@ public class UserAPITest {
 		int code = given()
 			.when()
 			.contentType(ContentType.JSON)
-			.delete("/users/10")
+			.delete("/users/11")
 			.getStatusCode();
 		
-		if(code==204){
-			System.out.println("User deleted Successfully");
-		}else {
-			System.out.println("Unexpected Error");
-		}
+		assertEquals(204, code);	
 		
-		
-	}*/
+	}
 	
 	
 }

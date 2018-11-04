@@ -76,7 +76,7 @@ public class UserController {
 	@ApiOperation(value = "Update a user", notes = "Updates a User")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="id", value="User ID", required = true, dataType="int", paramType="path"),
-		@ApiImplicitParam(name="user", value="User¡¯s update data", required = true, dataType="User")
+		@ApiImplicitParam(name="user", value="User's update data", required = true, dataType="User")
 	})
 	@ApiResponses({
 		@ApiResponse(code = 204, message = "User modified Successfully"),
@@ -91,6 +91,7 @@ public class UserController {
 			updatedUser.setName(user.getName());
 			updatedUser.setEmail(user.getEmail());
 			
+			userDAO.saveUser(updatedUser);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		}
 		
@@ -108,7 +109,7 @@ public class UserController {
 	public ResponseEntity<User> deleteUser(@PathVariable(value = "id") Integer uId){
 		User user = userDAO.getUser(uId);
 		
-		if(user==null) {
+		if(user!=null) {
 			userDAO.deleteUser(user);
 			
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
