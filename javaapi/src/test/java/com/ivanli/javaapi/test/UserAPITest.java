@@ -12,7 +12,7 @@ import io.restassured.http.ContentType;
 
 public class UserAPITest {
 
-	@BeforeClass
+	/*@BeforeClass
 	public static void init() {
 		RestAssured.baseURI = "http://localhost";
 		RestAssured.port=8080;
@@ -87,7 +87,7 @@ public class UserAPITest {
 		}
 		
 		
-	}
+	}*/
 	
 	
 }

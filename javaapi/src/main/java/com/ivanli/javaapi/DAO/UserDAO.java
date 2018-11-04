@@ -27,6 +27,15 @@ public class UserDAO {
 	// Looks up a User by the user id
 	public User getUser(Integer uId) {
 		return userRepo.findOne(uId);
+		
+		// For spring version 2.0 and above
+		/*
+		if(userRepo.findById(uId).isPresent()) {
+			return userRepo.findById(uId).get();
+		}else {
+			return null;
+		}
+		*/
 	}
 
 	
